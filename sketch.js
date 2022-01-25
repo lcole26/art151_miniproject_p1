@@ -13,6 +13,9 @@
 
 */
 let lines = [];
+let timings = [];
+let previousColor = null;
+let newColor = null;
 
 // code stolen from here: https://p5js.org/reference/#/p5/pixels
 // and here: https://p5js.org/reference/#/p5/get
@@ -55,6 +58,7 @@ function InitLScanLineArray(separation_factor, startColor, color_increment_facto
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  // colorMode(HSB, 360);
   let l = new ScanLine(0,
     0,
     windowWidth,
@@ -69,16 +73,26 @@ function setup() {
   // lines[0].display();
   strokeWeight(2);
   stroke(150);
+
+  // set timings for each line draw, in terms of ms 
+  timeInterval = 500;
+  for (let index = 0; index < 10; index++) {
+    timings[index] = timeInterval * index;
+  }
 }
 
 function draw() {
   // background(100, 100, 100, 100);
   background(255);
+
   for (let index = 0; index < windowHeight; index += windowWidth / 64) {
     // const element = array[index];
     strokeWeight(1);
     stroke(0, windowWidth / index, index);
-    line(0, index, windowWidth, index);
+    // line(0, index, windowWidth, index / 3);
+    // line(0, index, windowWidth, index / .1);
+    // line(0, index, windowWidth, index / 2);
+    line(0, index, windowWidth, index / .3);
   }
 
   // lines[0].display();
