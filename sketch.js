@@ -89,10 +89,10 @@ function draw() {
     // const element = array[index];
     strokeWeight(1);
     stroke(0, windowWidth / index, index);
-    // line(0, index, windowWidth, index / 3);
-    // line(0, index, windowWidth, index / .1);
+    line(0, index, windowWidth, index / 3);
+    line(0, index, windowWidth, index / .1);
     // line(0, index, windowWidth, index / 2);
-    line(0, index, windowWidth, index / .3);
+    // line(0, index, windowWidth, index / .3);
   }
 
   // lines[0].display();
